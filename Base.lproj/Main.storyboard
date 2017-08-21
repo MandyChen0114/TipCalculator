@@ -207,6 +207,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pdC-CX-Xwx">
+                                <rect key="frame" x="313" y="437" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="changeDefaultTheme:" destination="8NO-u4-2nK" eventType="valueChanged" id="N61-zB-wJo"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dark Theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awt-2R-qvb">
+                                <rect key="frame" x="28" y="404" width="255" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -216,8 +230,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="3cv-zf-JpU"/>
                     <connections>
+                        <outlet property="darkThemeSwitch" destination="pdC-CX-Xwx" id="1Xb-0E-mJj"/>
                         <outlet property="defaultNumOfPeople" destination="npB-9y-RYn" id="fr9-tp-UtI"/>
                         <outlet property="defaultTipPercent" destination="6Xi-Bl-2al" id="E3U-Sz-8xn"/>
+                        <outlet property="settingView" destination="Rjk-RL-TYp" id="kgo-DX-lZC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lsH-rN-ovs" userLabel="First Responder" sceneMemberID="firstResponder"/>

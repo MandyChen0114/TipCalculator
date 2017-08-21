@@ -32,6 +32,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if defaults.object(forKey: "lastBillAmount") != nil {
+            billField.text = defaults.string(forKey: "lastBillAmount")
+        }
+
         if defaults.object(forKey: "defaultTipPercent") != nil {
             percentSlider.value = Float(defaults.integer(forKey: "defaultTipPercent"))
             percentLabel.text = String(format: "%d%%", Int(percentSlider.value))
@@ -42,6 +46,10 @@ class ViewController: UIViewController {
             personField.text = String(format: "%d", defaults.integer(forKey: "defaultNumOfPeople"))
             calculateAvgTip(self)
         }
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0.1765, green: 0.8627, blue: 0.8627, alpha: 1.0)
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : (UIFont(name: "Avenir Next Medium", size: 25))!]
+        billField.becomeFirstResponder()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,12 +57,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        if defaults.object(forKey: "isDarkTheme") == nil || defaults.bool(forKey: "isDarkTheme") == false {
+            setLightTheme()
+        } else {
+            setDarkTheme()
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear( animated )
-        self.tipView.alpha = 1
-        navigationController?.navigationBar.barTintColor = UIColor(red: 0.1765, green: 0.8627, blue: 0.8627, alpha: 1.0)
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : (UIFont(name: "Avenir Next Medium", size: 25))!]
-        
     }
 
     @IBAction func onTap(_ sender: AnyObject) {
@@ -74,7 +86,6 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 0.3, animations: {
             self.tipView.alpha = 1
         })
-        print("finish editing")
     }
     
     @IBAction func calculateTip(_ sender: AnyObject) {
@@ -89,8 +100,8 @@ class ViewController: UIViewController {
         let tip = bill * tipPercentage / 100
         let total = bill + tip
 
-        tipLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        tipLabel.text = formatCurrency(value: tip)
+        totalLabel.text = formatCurrency(value: total)
         
         calculateAvgTip(self)
     }
@@ -107,10 +118,43 @@ class ViewController: UIViewController {
         
         let total = Double(totalStr) ?? 0
         let averageBill = total / numOfPeople
-        averageBillLabel.text = String(format: "$%.2f", averageBill)
+        averageBillLabel.text = formatCurrency(value: averageBill)
     
     }
     
+    func formatCurrency(value: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 2
+        formatter.locale = Locale(identifier: Locale.current.identifier)
+        let result = formatter.string(from: value as NSNumber)
+        return result!
+    }
     
+    func setDarkTheme() {
+        defaults.set(true, forKey: "isDarkTheme")
+        view.backgroundColor = UIColor(red:0.26, green: 0.26, blue: 0.26, alpha: 1.0)
+        for subView in view.subviews  {
+            if let labelView = subView as? UILabel {
+                labelView.textColor = UIColor.white
+            } else if let textView = subView as? UITextField {
+                textView.textColor = UIColor.white
+            }
+        }
+    }
+    
+    func setLightTheme() {
+        defaults.set(false, forKey: "isDarkTheme")
+        view.backgroundColor = UIColor.white
+        for subView in view.subviews  {
+            if let labelView = subView as? UILabel {
+                labelView.textColor = UIColor.black
+            } else if let textView = subView as? UITextField {
+                textView.textColor = UIColor.black
+            }
+        }
+    }
+    
+
 }
 
