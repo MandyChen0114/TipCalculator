@@ -26,18 +26,26 @@ The following **additional** features are implemented:
 * [x] User can choose any tip percent from 0-30% by slider bar
 * [x] User can decide number of people to split the bill, see the average bill amount to each one, and change the default number of people in the settings page.
 
-- [ ] List anything else that you can get done to improve the app functionality!
-* Validate user's input including bill amount and number of people
+List anything else that you can get done to improve the app functionality!
+- [ ] Validate user's input including bill amount and number of people
+- [ ] Adjust UI based on the size and orientation of a device
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
-
-<img src='GIF/launchScreen.gif' title='launchScreen' width='' alt='launchScreen' />
+**Basic functions**: Calculate Tip, Change tip percent by slider bar, decide number of people to split the bill, Launch screen, Setting view 
 <img src='/GIF/calculateTip.gif' title='Calculate Tip' width='' alt='Calculate Tip' />
+
+*Change Default Settings** : Changes to default settings will not affect current calculation for being user-friendly, but default tip percent and number of people will be new values in the next launch.
 <img src='/GIF/defaultSettings.gif' title='Change Default Settings' width='' alt='Change Default Settings' />
+
+**Change Locale Currency**
 <img src='/GIF/localeCurrency.gif' title='Change Locale Currency' width='' alt='Change Locale Currency' />
+
+**Remember Bill Amount In 10 seconds**: Making it 10 seconds is for GIF display purpose. Remeber the bill amount across app restarts in 10 seconds while reset it after 10 seconds.
 <img src='/GIF/rememberBill.gif' title='Remember Bill' width='' alt='Remember Bill' />
+
+**Dark Theme**: Switch between dark and light theme, and app will remeber user's perference.
 <img src='/GIF/darkTheme.gif' title='Dark Theme' width='' alt='Dark Theme' />
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

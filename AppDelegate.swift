@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let timeInterval = abs(lastQuitTime.timeIntervalSinceNow)
         
         // seconds to remeber bill amount across app restarts
-        let intervalToHoldBill: Double = 600.0
+        let intervalToHoldBill: Double = 10.0
         if timeInterval > intervalToHoldBill {
             defaults.removeObject(forKey: "lastBillAmount")
         }
