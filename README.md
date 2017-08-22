@@ -33,7 +33,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='/GIF/launchScreen.gif' title='launchScreen' width='' alt='launchScreen' />
+<img src='GIF/launchScreen.gif' title='launchScreen' width='' alt='launchScreen' />
 <img src='/GIF/calculateTip.gif' title='Calculate Tip' width='' alt='Calculate Tip' />
 <img src='/GIF/defaultSettings.gif' title='Change Default Settings' width='' alt='Change Default Settings' />
 <img src='/GIF/localeCurrency.gif' title='Change Locale Currency' width='' alt='Change Locale Currency' />
