@@ -62,16 +62,45 @@ As part of your pre-work submission, please reflect on the app and answer the fo
 
 **Question 1**: "What are your reactions to the iOS app development platform so far? How would you describe outlets and actions to another developer? Bonus: any idea how they are being implemented under the hood? (It might give you some ideas if you right-click on the Storyboard and click Open As->Source Code")
 
-**Answer:** [Enter your answer here in a paragraph or two].
+**Answer:** 
+It's really amazing to use XCode8 and Swift3 to develop an ios app! What has impressed me most so far is how Swift3 prevents nil value by wrapping/unwrapping Optional/Non-Optional values. Actually, I'm still not totally clear about how to do it in a neat and perfect way even after I finish this pre-work. I think it's a very unique and interesting feature of Swift.
 
-Question 2: "Swift uses [Automatic Reference Counting](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID49) (ARC), which is not a garbage collector, to manage memory. Can you explain how you can get a strong reference cycle for closures? (There's a section explaining this concept in the link, how would you summarize as simply as possible?)"
+Another good thing is the way XCode creates UI and connect it to controllers. I never image that pressing ctrl and dragging the UI widget from storyboard to the controller will do the magic.
+For me, an **Outlet** is the reference of a UI component in the viewController. It can be any object in the storyboard, and it shows as "@Property" in the view controller. An **Action** is a method triggered by an event happened to a UI object like editing, value changed and tapping. 
 
-**Answer:** [Enter your answer here in a paragraph or two].
+Opening the Storyboard as Source Code, we can see below structures: 
+
+```
+<viewController>
+    <view>
+        <slider>
+            <connections>
+                <action selector="lighterScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ro2-DS-iW8"/>
+            </connections>
+        </slider>
+    </view>
+    <connections>
+        <outlet property="percentSlider" destination="h4D-Gt-XFJ" id="Q2r-ex-ifB"/>
+    </connections>
+</viewController>
+```
+From this, we can tell an **outlet** is a connection between a view and a viewContoller, in other words, a view talks to the viewContoller by outlets. An **action** matches to an eventType of a UI object in the view, and it will trigger a selector/method in the viewController.
+
+
+
+**Question 2**: "Swift uses [Automatic Reference Counting](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID49) (ARC), which is not a garbage collector, to manage memory. Can you explain how you can get a strong reference cycle for closures? (There's a section explaining this concept in the link, how would you summarize as simply as possible?)"
+
+**Answer:**
+
+I can get a strong reference cycle in below 3 ways:
+1. When two class instance properties hold a strong reference to each other
+2. If I assign a closure to a property of a class instance, and the body of that closure captures the instance by calling _self_.
+3. When closures, like classes, are reference types, so it’s a class instance and a closure that are keeping each other alive.
 
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [MandyChen]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
