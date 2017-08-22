@@ -33,8 +33,12 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
+<img src='/GIF/launchScreen.gif' title='launchScreen' width='' alt='launchScreen' />
+<img src='/GIF/calculateTip.gif' title='Calculate Tip' width='' alt='Calculate Tip' />
+<img src='/GIF/defaultSettings.gif' title='Change Default Settings' width='' alt='Change Default Settings' />
+<img src='/GIF/localeCurrency.gif' title='Change Locale Currency' width='' alt='Change Locale Currency' />
+<img src='/GIF/rememberBill.gif' title='Remember Bill' width='' alt='Remember Bill' />
+<img src='/GIF/darkTheme.gif' title='Dark Theme' width='' alt='Dark Theme' />
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Project Analysis
