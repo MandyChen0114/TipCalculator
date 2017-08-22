@@ -27,7 +27,8 @@ The following **additional** features are implemented:
 * [x] User can decide number of people to split the bill, see the average bill amount to each one, and change the default number of people in the settings page.
 
 List anything else that you can get done to improve the app functionality!
-- [ ] Validate user's input including bill amount and number of people
+
+-~~[ ] Validate user's input including bill amount and number of people~~ (Actually it has been done as user can only use num pad which contains only digit numbers from 0-9 )
 - [ ] Adjust UI based on the size and orientation of a device
 
 ## Video Walkthrough 
